@@ -11,10 +11,11 @@ function Person(firstName, lastName) {
       `My name is ${this.firstName} ${this.lastName}. I love react.js`
     );
   };
+  console.log(this);
 }
 
 const anna = new Person("anna", "ivanovna");
-console.log(anna.fullName());
+anna.fullName();
 
 // function createPerson(firstName, lastName) {
 //   return {
