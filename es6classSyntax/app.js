@@ -2,24 +2,28 @@
 // Syntactic Sugar
 // Prototypal sugar
 
-function Account(name, initialBalance) {
-  this.name = name;
-  this.balance = initialBalance;
-  // this.bankName = "Bank Of Baku";
+class Account {
+  constructor(name, initialBalance) {
+    this.name = name;
+    this.balance = initialBalance;
+  }
+
+  // properties will not be prototype
+  bank = "Bank Standard";
+
+  // method will be prototype
+  deposit(amount) {
+    this.balance += amount;
+    console.log(this.balance);
+  }
 }
 
-Account.prototype.bankName = "Kapital Bank";
+const anna = new Account("Anna", 100);
+anna.deposit(500);
+console.log(anna);
+console.log(anna.bank);
 
-Account.prototype.deposit = function (amount) {
-  this.balance += amount;
-  console.log(this.balance);
-};
-
-const john = new Account("john", 200);
-const vlas = new Account("john", 300);
-
-console.log(john.bankName);
-console.log(vlas.bankName);
-
-john.deposit(100);
-vlas.deposit(300);
+const katerina = new Account("katerina", 500);
+katerina.deposit(1000);
+console.log(katerina);
+console.log(katerina.bank);
