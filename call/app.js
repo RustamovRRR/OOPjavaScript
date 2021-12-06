@@ -28,3 +28,5 @@ anna.greet();
 greet.call(benjamin);
 greet.call(anna);
 anna.greet.call(benjamin);
+
+greet.call({ name: "vlas", age: 33 });
